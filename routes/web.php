@@ -35,5 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::resource('receita', \App\Http\Controllers\ReceitaController::class);
 
 require __DIR__.'/auth.php';
