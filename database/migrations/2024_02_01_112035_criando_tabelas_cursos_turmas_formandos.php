@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Cursos', function (Blueprint $table){
+        Schema::create('cursos', function (Blueprint $table){
             $table->id('id_curso');
             $table->string('nome_curso', '50');
             $table->string('descricao', '100');
@@ -25,10 +25,10 @@ return new class extends Migration
             $table->double('preco');
         });
 
-        Schema::create('Formandos', function (Blueprint $table){
+        Schema::create('formandos', function (Blueprint $table){
             $table->id('id_formando');
-            $table->integer('id_usuario');
-            $table->integer('id_turma');
+            $table->bigInteger('id_usuario');
+            $table->bigInteger('id_turma');
             $table->date('data_nascimento');
             $table->string('instituicao');
             $table->string('grau_academico');
@@ -38,13 +38,13 @@ return new class extends Migration
             $table->string('numero_bi');
         });
 
-        Schema::create('Turmas', function (Blueprint $table){
+        Schema::create('turmas', function (Blueprint $table){
             $table->id('id_turma');
             $table->string('nome_turma');
             $table->string('estado_turma');
-            $table->integer('id_formador');
-            $table->integer('id_curso');
-            $table->integer('id_avaliacao');
+            $table->bigInteger('id_formador');
+            $table->bigInteger('id_curso');
+            $table->bigInteger('id_avaliacao');
         });
     }
 
@@ -53,8 +53,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Cursos');
-        Schema::dropIfExists('Formandos');
-        Schema::dropIfExists('Turmas');
+        Schema::dropIfExists('cursos');
+        Schema::dropIfExists('formandos');
+        Schema::dropIfExists('turmas');
     }
 };
