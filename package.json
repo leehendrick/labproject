@@ -5,7 +5,8 @@
         "dev": "vite",
         "build": "vite build",
         "watch": "mix watch",
-        "prod": "mix --production"
+        "prod": "mix --production",
+        "pas": "php artisan serve"
     },
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
