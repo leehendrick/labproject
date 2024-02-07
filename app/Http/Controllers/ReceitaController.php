@@ -3,53 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\Models\Receita;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReceitaController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $receita = Receita::all();
-        return view('receita.index', compact('receita'));
+        $receitas = Receita::all();
+        return  view('receita.index')->with('receitas', $receitas);
     }
 
-    public function create()
+    public function create(): View
     {
-        $receita = Receita::all();
-        return view('receita.create', compact('receita'));
-
+        return view('receita.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        Receita::create($request->all());
-        return redirect()->route('receita.comfirm');
-
+        $input = $request->all();
+        Receita::create($input);
+        return redirect('receita')->with('flash_message', 'Receita Adicionada!');
     }
 
     public function show($id)
     {
-        $receita = Receita::findOrFail($id);
-        return view('receita.show', compact('receita'));
+        $receita = Receita::find($id);
+        return view('receita.update')->with('receitas', $receita);
     }
 
-    public function edit($id)
+    public function edit($id): View
     {
         $receita = Receita::findOrFail($id);
-        return view('receita.edit', compact('receita'));
+        return view('receita.edit')->with('receitas', $receita);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
         $receita = Receita::findOrFail($id);
         $receita->update($request->all());
-        return view('receita.index');
+        return redirect('receita')->with('flash_message', 'Receita Atualizada!');
     }
 
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
         $receita = Receita::findOrFail($id);
         $receita->delete();
-        return redirect()->route('receita.index');
+
+        return redirect('receita')->with('flash_message', 'Receita Eliminada!');
     }
 }

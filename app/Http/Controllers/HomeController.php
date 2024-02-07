@@ -18,7 +18,7 @@ class HomeController extends Controller
                 return Inertia::render('Dashboard');
             }
             else if($usertype == 'admin'){
-                return view('receita.comfirm');
+                return Inertia::render('Dashboard');
             }
             else{
                 redirect()->back();
