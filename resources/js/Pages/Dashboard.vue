@@ -1,12 +1,11 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import GuestLayout from "@/Layouts/GuestLayout.vue";
+import AdminLayout from "@/Layouts/AdminLayout.vue";
 </script>
 
 <template>
     <Head title="Dashboard" />
-    <GuestLayout>
+    <AdminLayout>
       <template v-slot:mainContent>
         <div class="py-12 shadow-md">
           <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -16,5 +15,5 @@ import GuestLayout from "@/Layouts/GuestLayout.vue";
           </div>
         </div>
       </template>
-    </GuestLayout>
+    </AdminLayout>
 </template>
