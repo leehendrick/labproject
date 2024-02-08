@@ -15,7 +15,7 @@ class HomeController extends Controller
         {
             $usertype = Auth()->user()->user_type;
             if ($usertype == 'user'){
-                return Inertia::render('Dashboard');
+                return Inertia::render('Home');
             }
             else if($usertype == 'admin'){
                 return Inertia::render('Dashboard');
