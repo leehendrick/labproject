@@ -5,6 +5,7 @@ import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 import { Head } from '@inertiajs/vue3';
 import GuestLayout from "@/Layouts/GuestLayout.vue";
+import AdminLayout from "@/Layouts/AdminLayout.vue";
 
 defineProps({
     mustVerifyEmail: {
@@ -19,7 +20,7 @@ defineProps({
 <template>
     <Head title="Profile" />
 
-    <GuestLayout>
+    <AdminLayout>
         <template v-slot:mainContent>
           <h2 class="font-semibold text-xl text-gray-800 leading-tight">Profile</h2>
           <div class="py-12">
@@ -43,5 +44,5 @@ defineProps({
           </div>
         </template>
 
-    </GuestLayout>
+    </AdminLayout>
 </template>
