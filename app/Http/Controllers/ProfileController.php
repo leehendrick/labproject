@@ -40,13 +40,6 @@ class ProfileController extends Controller
 
     }
 
-    /*public function editAdmin(Request $request): Response
-    {
-        return Inertia::render('Profile/EditAdmin', [
-           'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
-        ]);
-    }*/
 
     /**
      * Update the user's profile information.
