@@ -25,6 +25,7 @@
         "@headlessui/vue": "^1.7.19",
         "@heroicons/vue": "^2.1.1",
         "@inertiajs/inertia": "^0.11.1",
-        "@inertiajs/inertia-vue": "^0.8.0"
+        "@inertiajs/inertia-vue": "^0.8.0",
+        "vue-sweetalert2": "^5.0.5"
     }
 }
