@@ -18,11 +18,28 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
-        return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
-        ]);
+        if(Auth::id())
+        {
+            $usertype = Auth()->user()->user_type;
+            if ($usertype == 'user'){
+                return Inertia::render('Profile/Edit', [
+                    'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+                    'status' => session('status'),
+                ]);
+            }
+            else if($usertype == 'admin'){
+                return Inertia::render('Profile/EditAdmin', [
+                    'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+                    'status' => session('status'),
+                ]);
+            }
+            else{
+                redirect()->back();
+            }
+        }
+
     }
+
 
     /**
      * Update the user's profile information.
@@ -36,8 +53,8 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-
         return Redirect::route('profile.edit');
+
     }
 
     /**
