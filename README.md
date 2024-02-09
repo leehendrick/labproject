@@ -6,5 +6,5 @@ Bem-Vindo ao Sistema de Gerenciamento de Cursos, um projeto em desenvolvimento c
 
 
 ## License
-
+ 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
