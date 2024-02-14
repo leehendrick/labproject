@@ -27,11 +27,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware(['auth', 'verified', 'admin'])->group(function (){
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
 
+    Route::get('/dashboard/formandos', function (){
+        return Inertia::render('Formandos');
+    })->name('/dashboard/formando');
+});
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 
 Route::middleware('auth')->group(function () {
