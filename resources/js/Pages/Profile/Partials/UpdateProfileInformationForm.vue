@@ -9,8 +9,8 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 const exibirAlert = () => {
   Swal.fire({
-    title: 'Sucesso',
-    text: 'Ao atualizar informações!',
+    title: 'Success',
+    text: 'Ao atualizar Perfil!',
     icon: 'success', // 'success', 'error', 'warning', 'info', 'question'
     confirmButtonText: 'OK',
   });
