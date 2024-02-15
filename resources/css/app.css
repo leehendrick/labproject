@@ -5,6 +5,12 @@
 .bg-primary{
     background-color: #FFC423;
 }
+.bt-hover{
+    background-color: #FFC423;
+}
+.bt-hover:hover{
+    background-color: #ffff39;
+}
 .text-primary{
     color: #FFC423;
 }
@@ -13,4 +19,9 @@
 }
 .bg-other{
     background-color: #AFB3B4;
+}
+.border-layout{
+    border-color: #FFC423;
+    border-width: medium;
+    height: auto;
 }
