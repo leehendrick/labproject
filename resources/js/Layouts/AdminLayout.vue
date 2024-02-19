@@ -65,13 +65,12 @@ const sidebarOpen = ref(false)
                       <li>
                         <ul role="list" class="-mx-2 space-y-1">
                           <li v-for="item in navigation" :key="item.name">
-                            <a :href="item.href"
-                               @mouseenter="item.hovered = true"
-                               @mouseleave="item.hovered = false"
-                               :class="[item.current ? 'bg-primary text-white' : 'text-indigo-200 group-hover:text-white hover:bg-secondary', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
-                              <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white hover:bg-primary', 'h-6 w-6 shrink-0']" aria-hidden="true" />
-                              {{ item.name }}
-                            </a>
+
+                            <router-link :to="item.href" :class="[item.current ? 'bg-primary text-white' : 'text-indigo-200 group-hover:text-white hover:bg-secondary', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
+                            <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white hover:bg-primary', 'h-6 w-6 shrink-0']" aria-hidden="true" />
+                            {{ item.name }}
+                          </router-link>
+
                           </li>
                         </ul>
                       </li>
@@ -109,8 +108,8 @@ const sidebarOpen = ref(false)
               <li>
                 <ul role="list" class="-mx-2 space-y-1">
                   <li v-for="item in navigation" :key="item.name">
-                    <a :href="item.href" :class="[item.current ? 'bg-primary text-white' : 'text-indigo-200 hover:text-white hover:bg-primary', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
-                      <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white group-hover:bg-primary', 'h-6 w-6 shrink-0']" aria-hidden="true" />
+                    <a :href="item.href" :class="[item.current ? 'text-primary' : 'text-indigo-200 hover:text-white sidebar-hover', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
+                      <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white group-hover:sidebar-hover', 'h-6 w-6 shrink-0']" aria-hidden="true" />
                       {{ item.name }}
                     </a>
                   </li>
@@ -122,7 +121,7 @@ const sidebarOpen = ref(false)
                 </ul>
               </li>
               <li class="mt-auto">
-                <a href="#" class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
+                <a href="#" class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 sidebar-hover hover:text-white">
                   <Cog6ToothIcon class="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white" aria-hidden="true" />
                   Settings
                 </a>
