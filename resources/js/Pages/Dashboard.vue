@@ -2,13 +2,8 @@
 import { Head } from '@inertiajs/vue3';
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {ArrowDownIcon, ArrowUpIcon} from '@heroicons/vue/20/solid'
-import { CurrencyDollarIcon, UsersIcon, AcademicCapIcon } from '@heroicons/vue/24/outline'
 
-const stats = [
-  { id: 1, name: 'Total Formandos', stat: '71,897', icon: UsersIcon, change: '122', changeType: 'increase' },
-  { id: 2, name: 'Total Receitas', stat: '1.246.700Kz', icon: CurrencyDollarIcon, change: '5%', changeType: 'increase' },
-  { id: 3, name: 'Total Turmas', stat: '18', icon: AcademicCapIcon, change: '3.2%', changeType: 'decrease' },
-]
+import {stats} from "../../../public/js/app.js";
 </script>
 
 <template>

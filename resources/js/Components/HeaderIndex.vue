@@ -1,11 +1,6 @@
 <script setup>
-const navigation = [
-  { name: 'Home', href: '/index' },
-  { name: 'Inscrições', href: '/registro' },
-  { name: 'Contatos', href: '/contatos' },
-]
+import { navigation } from '/public/js/app.js';
 </script>
-
 <template>
   <header class="bg-secondary top-0 fixed w-full ">
     <nav class="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
@@ -15,16 +10,20 @@ const navigation = [
             <span class="sr-only">Your Company</span>
           </a>
           <div class="ml-10 hidden space-x-8 lg:block">
-            <a v-for="link in navigation" :key="link.name" :href="link.href" class="text-base font-medium text-white hover:text-indigo-50">{{ link.name }}</a>
+            <a v-for="link in navigation" :key="link.name" class="text-base font-medium text-white hover:text-indigo-50">
+              <router-link :to="link.href">{{ link.name }}</router-link>
+            </a>
           </div>
         </div>
         <div class="ml-10 space-x-4">
-          <a href="#" class="inline-block rounded-md border border-transparent bt-hover px-4 py-2 text-base font-medium text-white hover:bg-opacity-75">Sign in</a>
+          <a href="/login" class="inline-block rounded-md border border-transparent bt-hover px-4 py-2 text-base font-medium text-white hover:bg-opacity-75">Sign in</a>
           <a href="#" class="inline-block rounded-md border border-transparent bg-white px-4 py-2 text-base font-medium text-primary hover:bg-indigo-50">Sign up</a>
         </div>
       </div>
       <div class="flex flex-wrap justify-center gap-x-6 py-4 lg:hidden">
-        <a v-for="link in navigation" :key="link.name" :href="link.href" class="text-base font-medium text-white hover:text-indigo-50">{{ link.name }}</a>
+        <a v-for="link in navigation" :key="link.name" class="text-base font-medium text-white hover:text-indigo-50">
+          <router-link :to="link.href">{{ link.name }}</router-link>
+        </a>
       </div>
     </nav>
   </header>
