@@ -19,7 +19,7 @@ onMounted(async () => {
 
 <template>
 <header-index/>
-  <main class="mt-40 container mx-auto p-4">
+  <main class="mt-32 container mx-auto p-4">
 
     <div class="flex flex-col md:flex-row">
       <!-- Container do lado esquerdo -->
@@ -28,7 +28,9 @@ onMounted(async () => {
 
         <div v-for="curso in cursos" class="max-w-lg mx-auto mt-8 bg-white shadow-md rounded p-6 border border-layout">
           <h2 class="text-2xl font-bold mb-4">{{curso.nome_curso}}</h2>
-          <p class="text-gray-600 mb-4">Vagas Disponíveis: {{ curso.vagas }}</p>
+          <p class="text-gray-600 mb-2">Vagas Disponíveis: {{ curso.vagas }}</p>
+          <p class="text-gray-600 mb-2">Duração: {{ curso.duracao }}</p>
+          <p class="text-gray-600 mb-2">Preço: {{ curso.preco }}AOA</p>
           <button class="bg-suave bt-hover text-white font-bold py-2 px-4 rounded" @click="inscrever(curso.id)">
             Inscrever-se
           </button>
