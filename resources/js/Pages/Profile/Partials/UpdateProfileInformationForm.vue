@@ -4,6 +4,17 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+const exibirAlert = () => {
+  Swal.fire({
+    title: 'Success',
+    text: 'Ao atualizar Perfil!',
+    icon: 'success', // 'success', 'error', 'warning', 'info', 'question'
+    confirmButtonText: 'OK',
+  });
+};
 
 defineProps({
     mustVerifyEmail: {
@@ -13,6 +24,7 @@ defineProps({
         type: String,
     },
 });
+
 
 const user = usePage().props.auth.user;
 
@@ -86,7 +98,7 @@ const form = useForm({
             </div>
 
             <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <PrimaryButton @click="exibirAlert" :disabled="form.processing">Save</PrimaryButton>
 
                 <Transition
                     enter-active-class="transition ease-in-out"

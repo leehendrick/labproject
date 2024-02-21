@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-primary .border-primary{
+    background-color: #FFC423;
+}
+.focus-border:focus{
+    border-color: #FFC423;
+}
+
+.bt-hover{
+    background-color: #FFC423;
+}
+.sidebar-hover:hover{
+    background-color: #FFC423
+}
+.bt-hover:hover{
+    background-color: #ffff39;
+}
+.text-primary{
+    color: #FFC423;
+}
+.bg-secondary{
+    background-color: #040707;
+}
+.bg-other{
+    background-color: #AFB3B4;
+}
+.border-layout{
+    border-color: #FFC423;
+    border-width: 2px;
+    height: auto;
+}
+.border-layout2{
+    border-color: #FFC423;
+    border-width: medium;
+    height: auto;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}

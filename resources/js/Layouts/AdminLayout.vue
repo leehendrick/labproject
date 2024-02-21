@@ -1,12 +1,9 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import {
   Dialog,
   DialogPanel,
   Menu,
-  MenuButton,
   MenuItem,
   MenuItems,
   TransitionChild,
@@ -15,32 +12,20 @@ import {
 import {
   Bars3Icon,
   BellIcon,
-  CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
   HomeIcon,
   UsersIcon,
   XMarkIcon,
 } from '@heroicons/vue/24/outline'
-import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
+import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 import Dropdown from "@/Components/Dropdown.vue";
 import DropdownLink from "@/Components/DropdownLink.vue";
 
 const navigation = [
-  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
-  { name: 'Team', href: '#', icon: UsersIcon, current: false },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true,  },
+  { name: 'Formandos', href: '/dashboard/formandos', icon: UsersIcon, current: false, },
 ]
-const teams = [
-  { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-  { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-  { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-]
+
 const userNavigation = [
   { name: 'Your profile', href: '#' },
   { name: 'Sign out', href: '#' },
@@ -71,7 +56,7 @@ const sidebarOpen = ref(false)
                 </TransitionChild>
 
                 <!-- Sidebar component, swap this element with another sidebar if you like -->
-                <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
+                <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-secondary px-6 pb-4">
                   <div class="flex h-16 shrink-0 items-center">
                     <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=white" alt="Your Company" />
                   </div>
@@ -80,21 +65,19 @@ const sidebarOpen = ref(false)
                       <li>
                         <ul role="list" class="-mx-2 space-y-1">
                           <li v-for="item in navigation" :key="item.name">
-                            <a :href="item.href" :class="[item.current ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:text-white hover:bg-indigo-700', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
-                              <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white', 'h-6 w-6 shrink-0']" aria-hidden="true" />
-                              {{ item.name }}
-                            </a>
+
+                            <router-link :to="item.href" :class="[item.current ? 'bg-primary text-white' : 'text-indigo-200 group-hover:text-white hover:bg-secondary', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
+                            <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white hover:bg-primary', 'h-6 w-6 shrink-0']" aria-hidden="true" />
+                            {{ item.name }}
+                          </router-link>
+
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <div class="text-xs font-semibold leading-6 text-indigo-200">Your teams</div>
+                        <div class="text-xs font-semibold leading-6 text-indigo-200">Billable</div>
                         <ul role="list" class="-mx-2 mt-2 space-y-1">
-                          <li v-for="team in teams" :key="team.name">
-                            <a :href="team.href" :class="[team.current ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:text-white hover:bg-indigo-700', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
-                              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">{{ team.initial }}</span>
-                              <span class="truncate">{{ team.name }}</span>
-                            </a>
+                          <li>
                           </li>
                         </ul>
                       </li>
@@ -116,7 +99,7 @@ const sidebarOpen = ref(false)
       <!-- Static sidebar for desktop -->
       <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         <!-- Sidebar component, swap this element with another sidebar if you like -->
-        <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
+        <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-secondary px-6 pb-4">
           <div class="flex h-16 shrink-0 items-center">
             <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=white" alt="Your Company" />
           </div>
@@ -125,26 +108,20 @@ const sidebarOpen = ref(false)
               <li>
                 <ul role="list" class="-mx-2 space-y-1">
                   <li v-for="item in navigation" :key="item.name">
-                    <a :href="item.href" :class="[item.current ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:text-white hover:bg-indigo-700', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
-                      <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white', 'h-6 w-6 shrink-0']" aria-hidden="true" />
+                    <a :href="item.href" :class="[item.current ? 'text-primary' : 'text-indigo-200 hover:text-white sidebar-hover', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
+                      <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white group-hover:sidebar-hover', 'h-6 w-6 shrink-0']" aria-hidden="true" />
                       {{ item.name }}
                     </a>
                   </li>
                 </ul>
               </li>
               <li>
-                <div class="text-xs font-semibold leading-6 text-indigo-200">Your teams</div>
+                <div class="text-xs font-semibold leading-6 text-indigo-200">Billable</div>
                 <ul role="list" class="-mx-2 mt-2 space-y-1">
-                  <li v-for="team in teams" :key="team.name">
-                    <a :href="team.href" :class="[team.current ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:text-white hover:bg-indigo-700', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
-                      <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">{{ team.initial }}</span>
-                      <span class="truncate">{{ team.name }}</span>
-                    </a>
-                  </li>
                 </ul>
               </li>
               <li class="mt-auto">
-                <a href="#" class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white">
+                <a href="#" class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 sidebar-hover hover:text-white">
                   <Cog6ToothIcon class="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white" aria-hidden="true" />
                   Settings
                 </a>

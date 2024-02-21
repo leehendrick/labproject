@@ -16,28 +16,24 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): Response
+    public function edit(Request $request): \Inertia\Response
     {
-        if(Auth::id())
-        {
+        if (Auth::check()) {
             $usertype = Auth()->user()->user_type;
-            if ($usertype == 'user'){
+            if ($usertype == 'user') {
                 return Inertia::render('Profile/Edit', [
                     'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
                     'status' => session('status'),
                 ]);
-            }
-            else if($usertype == 'admin'){
+            } elseif ($usertype == 'admin') {
                 return Inertia::render('Profile/EditAdmin', [
                     'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
                     'status' => session('status'),
                 ]);
             }
-            else{
-                redirect()->back();
-            }
-        }
 
+            return Inertia::render('Error');
+        }
     }
 
 
