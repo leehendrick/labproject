@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceitaController;
 use Illuminate\Foundation\Application;
@@ -18,22 +19,19 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/index', function (){
+Route::get('/', function (){
     return Inertia::render('index');
 })->name('index');
 
-Route::get('/{any}', function () {
-    return Inertia::render('App');
-})->where('any', '.*');
-
 Route::get('/registro', function (){
-    return Inertia::render('Index/register');
-})->name('/registro');
+    return Inertia::render('Index/registro');
+})->name('registro');
 
 Route::get('/contatos', function (){
     return Inertia::render('Index/contatos');
-})->name('/contatos');
+})->name('contatos');
 
+Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index');
 
 Route::get('/login', function () {
     return Inertia::render('Auth/Login', [
@@ -67,5 +65,7 @@ Route::middleware(['auth', 'admin'])->group(function (){
     Route::resource('/receita', ReceitaController::class);
 });
 
-
+Route::get('/{any}', function () {
+    return view('index');
+})->where('any', '.*');
 require __DIR__.'/auth.php';

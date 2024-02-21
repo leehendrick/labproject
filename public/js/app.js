@@ -9,8 +9,8 @@
 
 export const navigation = [
         { name: 'Home', href: '/' },
-        { name: 'Inscrições', href: '/registro' },
-        { name: 'Contatos', href: '/contatos' },
+        { name: 'Inscrições', href: 'registro' },
+        { name: 'Contatos', href: 'contatos' },
 ];
 
 export const stats = [

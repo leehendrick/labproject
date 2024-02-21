@@ -10,13 +10,38 @@ import Register from "@/Pages/Auth/Register.vue";
 
 
 const routes = [
-        { path: '/', component: Index },
-        { path: '/home', component: Home },
-        { path: '/dashboard', component: Dashboard },
-        { path: '/login', component: Login},
-        { path: '/registro', component: Registro},
-        { path: '/contatos', component: Contatos},
-        { path: '/register', component: Register}
+        {
+            path: '/',
+            component: Index,
+        },
+        {
+            path: '/home',
+            component: Home,
+        },
+        {
+            path: '/dashboard',
+            component: Dashboard,
+        },
+        {
+            path: '/login',
+            component: Login,
+        },
+        {
+            path: '/registro',
+            component: Registro,
+        },
+        {
+            path: '/contatos',
+            component: Contatos,
+        },
+        {
+            path: '/register',
+            component: Register,
+        },
+        {
+            path: '/cursos',
+            component: 'index',
+        },
     ];
 
 
