@@ -19,21 +19,18 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function (){
-    return Inertia::render('index');
-})->name('index');
+//Rotas inicial
+Route::get('/', fn() => Inertia::render('index'))->name('index');
+Route::get('/registro', fn() => Inertia::render('Index/registro'))->name('registro');
+Route::get('/contatos', fn() => Inertia::render('Index/contatos'))->name('registro');
 
-Route::get('/registro', function (){
-    return Inertia::render('Index/registro');
-})->name('registro');
-
-Route::get('/contatos', function (){
-    return Inertia::render('Index/contatos');
-})->name('contatos');
-
+//Rotas livres
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index');
+Route::get('/error', fn() => Inertia::render('Error'))->name('error');
 
+//Rota de login
 Route::get('/login', function () {
+    sleep(5);
     return Inertia::render('Auth/Login', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -42,30 +39,21 @@ Route::get('/login', function () {
     ]);
 });
 
-
+//Rota de administrador
 Route::middleware(['auth', 'verified', 'admin'])->group(function (){
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-
-    Route::get('/dashboard/formandos', function (){
-        return Inertia::render('Formandos');
-    })->name('/dashboard/formando');
+    Route::get('/dashboard', fn() => Inertia::render('Dashboard'))->name('dashboard');
+    Route::get('/dashboard/formandos', fn() => Inertia::render('Formandos'))->name('dashboard.formandos');
+    Route::resource('/receita', 'ReceitaController');
 });
-Route::get('/home', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 
-Route::middleware('auth')->group(function () {
+//Rota user auth
+Route::middleware('auth')->group(function (){
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-Route::middleware(['auth', 'admin'])->group(function (){
-    Route::resource('/receita', ReceitaController::class);
-});
-
-Route::get('/{any}', function () {
-    return view('index');
-})->where('any', '.*');
+//Vue Router
+Route::get('/{any}', fn() => view('index'))->where('any', '.*');
 require __DIR__.'/auth.php';
