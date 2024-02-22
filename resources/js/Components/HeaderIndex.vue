@@ -1,5 +1,5 @@
 <script setup>
-import { navigation } from '/public/js/app.js';
+import { navigation } from '/public/js/script.js';
 import { InertiaLink } from "@inertiajs/inertia-vue3";
 </script>
 <template>

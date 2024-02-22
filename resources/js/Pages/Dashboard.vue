@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/vue3';
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {ArrowDownIcon, ArrowUpIcon} from '@heroicons/vue/20/solid'
 
-import {stats} from "../../../public/js/app.js";
+import {stats} from "../../../public/js/script.js";
 </script>
 
 <template>

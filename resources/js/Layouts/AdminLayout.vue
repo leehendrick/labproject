@@ -20,16 +20,8 @@ import {
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 import Dropdown from "@/Components/Dropdown.vue";
 import DropdownLink from "@/Components/DropdownLink.vue";
-
-const navigation = [
-  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true,  },
-  { name: 'Formandos', href: '/dashboard/formandos', icon: UsersIcon, current: false, },
-]
-
-const userNavigation = [
-  { name: 'Your profile', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
+import {navigationAdm} from "../../../public/js/script.js";
+import {userNavigation} from "../../../public/js/script.js";
 
 const sidebarOpen = ref(false)
 </script>
@@ -64,8 +56,7 @@ const sidebarOpen = ref(false)
                     <ul role="list" class="flex flex-1 flex-col gap-y-7">
                       <li>
                         <ul role="list" class="-mx-2 space-y-1">
-                          <li v-for="item in navigation" :key="item.name">
-
+                          <li v-for="item in navigationAdm" :key="item.name">
                             <router-link :to="item.href" :class="[item.current ? 'bg-primary text-white' : 'text-indigo-200 group-hover:text-white hover:bg-secondary', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
                             <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white hover:bg-primary', 'h-6 w-6 shrink-0']" aria-hidden="true" />
                             {{ item.name }}
@@ -107,7 +98,7 @@ const sidebarOpen = ref(false)
             <ul role="list" class="flex flex-1 flex-col gap-y-7">
               <li>
                 <ul role="list" class="-mx-2 space-y-1">
-                  <li v-for="item in navigation" :key="item.name">
+                  <li v-for="item in navigationAdm" :key="item.name">
                     <a :href="item.href" :class="[item.current ? 'text-primary' : 'text-indigo-200 hover:text-white sidebar-hover', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
                       <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white group-hover:sidebar-hover', 'h-6 w-6 shrink-0']" aria-hidden="true" />
                       {{ item.name }}
