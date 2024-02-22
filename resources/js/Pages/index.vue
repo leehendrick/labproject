@@ -1,20 +1,8 @@
 <script setup>
 import HeaderIndex from "@/Components/HeaderIndex.vue";
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import { useRoute } from 'vue-router';
+import useCursos from "/public/js/index.js";
 
-const cursos = ref({});
-const route = useRoute();
-
-onMounted(async () => {
-  try {
-    const response = await axios.get(`/api/cursos`);
-    cursos.value = response.data;
-  } catch (error) {
-    console.error(error);
-  }
-});
+const { cursos } = useCursos();
 </script>
 
 <template>

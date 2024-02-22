@@ -1,9 +1,8 @@
 <script setup>
 import HeaderIndex from "@/Components/HeaderIndex.vue";
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import IndividualForm from "@/Components/IndividualForm.vue";
-import axios from 'axios';
-import { useRoute } from 'vue-router';
+
 
 const selectedFormType = ref('default');
 
@@ -11,17 +10,6 @@ const handleSelectChange = () => {
   //
 };
 
-const cursos = ref({});
-const route = useRoute();
-
-onMounted(async () => {
-  try {
-    const response = await axios.get(`/api/cursos`);
-    cursos.value = response.data;
-  } catch (error) {
-    console.error(error);
-  }
-});
 </script>
 
 <template>
