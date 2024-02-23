@@ -1,72 +1,78 @@
 <script setup>
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import {ref, onMounted} from "vue";
+import {inscricao, submitInscricao} from "../../../public/js/index.js";
+
+
+//Carregar os dados da inscrição existente
+onMounted(async () => {
+  //await fetchInscricao(id.value);
+})
+
+ async function submitForm(){
+  await submitInscricao();
+}
 
 </script>
 
 <template>
-  <div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md w-full md:w-3/5">
-    <h2 class="text-2xl font-semibold mb-4">Formulário de Inscrição</h2>
-
-    <!-- Nome Completo -->
-    <div class="mb-4">
-      <label for="nome" class="block text-sm font-medium text-gray-600">Nome Completo</label>
-      <input type="text" id="nome" name="nome" class="mt-1 p-2 w-full border rounded-md" placeholder="Digite seu nome completo">
-    </div>
-
-    <!-- Sexo -->
-    <div class="mb-4">
-      <label class="block text-sm font-medium text-gray-600">Sexo</label>
-      <div class="mt-1">
-        <label class="inline-flex items-center">
-          <input type="radio" class="form-radio" name="sexo" value="masculino">
-          <span class="ml-2">Masculino</span>
-        </label>
-        <label class="inline-flex items-center ml-6">
-          <input type="radio" class="form-radio" name="sexo" value="feminino">
-          <span class="ml-2">Feminino</span>
-        </label>
-      </div>
-    </div>
-
-    <!-- Número do BI -->
-    <div class="mb-4">
-      <label for="bi" class="block text-sm font-medium text-gray-600">Número do BI</label>
-      <input type="text" id="bi" name="bi" class="mt-1 p-2 w-full border rounded-md" placeholder="Digite o número do BI">
-    </div>
-
-    <!-- Número de Telefone -->
-    <div class="mb-4">
-      <label for="telefone" class="block text-sm font-medium text-gray-600">Número de Telefone</label>
-      <input type="tel" id="telefone" name="telefone" class="mt-1 p-2 w-full border rounded-md" placeholder="Digite o número de telefone">
-    </div>
-
-    <!-- Instituição de Ensino -->
-    <div class="mb-4">
-      <label for="instituicao" class="block text-sm font-medium text-gray-600">Instituição de Ensino</label>
-      <input type="text" id="instituicao" name="instituicao" class="mt-1 p-2 w-full border rounded-md" placeholder="Digite o nome da instituição de ensino">
-    </div>
-
-    <!-- Grau Acadêmico -->
-    <div class="mb-4">
-      <label class="block text-sm font-medium text-gray-600">Grau Acadêmico</label>
-      <select class="mt-1 p-2 w-full border rounded-md">
-        <option value="bacharelado">Escolha uma opção</option>
-        <option value="bacharelado">Ensino de Base</option>
-        <option value="licenciatura">Ensino Médio</option>
-        <option value="mestrado">1º Ano - Licenciatura</option>
-        <option value="doutorado">2º Ano - Licenciatura</option>
-        <option value="doutorado">3º Ano - Licenciatura</option>
-        <option value="doutorado">4º Ano - Licenciatura</option>
-        <option value="doutorado">5º Ano - Licenciatura</option>
-        <option value="doutorado">Licenciado</option>
-        <option value="doutorado">Mestre ou Superior</option>
-      </select>
-    </div>
-
-    <!-- Botão de Envio -->
-    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Enviar</button>
+  <form @submit.prevent="submitForm()" class="m-4">
+  <h2 class="text-2xl font-bold mb-4">Formulário de Inscrição</h2>
+  <div class="relative">
+    <label for="nome" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Nome Completo</label>
+    <input type="text" name="nome" id="nome" v-model="inscricao.nome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Hendrick Nkuba" required />
   </div>
 
+  <div class="relative mt-5">
+    <label for="email" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Email</label>
+    <input type="email" name="email" id="email" v-model="inscricao.email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="you@example.com" required />
+  </div>
 
+  <div class="relative mt-5">
+    <label for="sexo" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Sexo</label>
+    <select id="sexo" name="sexo" v-model="inscricao.sexo" class="form-select block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+      <option disabled selected>Selecione</option>
+      <option value="M">Masculino</option>
+      <option value="F">Feminino</option>
+    </select>
+  </div>
+
+  <div class="relative mt-5">
+    <label for="bi" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Número do BI</label>
+    <input type="text" name="bi" id="bi" v-model="inscricao.bi" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="098765432LA123" required/>
+  </div>
+
+  <div class="relative mt-5">
+    <label for="instituicao" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Instituição de Ensino</label>
+    <input type="text" name="instituicao" id="instituicao" v-model="inscricao.instituicao" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="ISPECT" required/>
+  </div>
+
+  <div class="relative mt-5">
+    <label for="grau_academico" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Grau Académico</label>
+    <select id="grau_academico" name="grau_academico" v-model="inscricao.grau_academico" class="form-select block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+      <option disabled selected>Selecione</option>
+      <option value="ensinoBase">Ensino de Base</option>
+      <option value="ensinoMedio">Ensino Médio</option>
+      <option value="licenciatura1">1º Ano - Licenciatura</option>
+      <option value="licenciatura2">1º Ano - Licenciatura</option>
+      <option value="licenciatura3">1º Ano - Licenciatura</option>
+      <option value="licenciatura4">1º Ano - Licenciatura</option>
+      <option value="licenciatura5">1º Ano - Licenciatura</option>
+      <option value="licenciatura6">Licenciado</option>
+      <option value="mestre">Mestre</option>
+    </select>
+  </div>
+  <div class="relative mt-5">
+    <label for="anexo" class=" absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">
+      Anexar B.I
+    </label>
+    <input class="block w-full text-sm px-4  border-gray-300 rounded-md cursor-pointer border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="large_size" type="file">
+  </div>
+
+  <div class="mt-5">
+    <primary-button>Enviar</primary-button>
+  </div>
+  </form>
 </template>
 
 <style scoped>
