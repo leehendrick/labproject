@@ -61,7 +61,9 @@ export async function submitInscricao(){
             showConfirmButton: false,
             timer: 1500,
         })
-        LimparCampos();
+       setTimeout(function (){
+           location.reload()
+        }, 3000)
 
     } catch (error){
         console.log('[ERRO AO INSERIR NA BD]:', error);
