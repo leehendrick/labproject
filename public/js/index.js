@@ -75,5 +75,22 @@ export async function submitInscricao(){
 
 }
 
+export async function cursoDetalhe(id){
+    try{
+        const response = await axios.get(`/registro/${id}`);
+        console.log('Resposta da API:', response.data);
+        return response.data.curso;
+    } catch (error) {
+        console.error('[ERRO AO OBTER DETALHES DE CURSO]', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'ERRO AO OBTER DETALHES DE CURSO',
+            text: `${error}`,
+            showConfirmButton: true,
+        })
+        throw error;
+    }
+}
+
 
 

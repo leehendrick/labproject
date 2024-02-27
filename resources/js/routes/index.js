@@ -1,12 +1,15 @@
 //Chamando os componentes Vue
-import Dashboard from "@/Pages/Dashboard.vue";
-import Home from "@/Pages/Home.vue";
-import Index from "@/Pages/index.vue";
-import Login from "@/Pages/Auth/Login.vue";
-import Registro from "@/Pages/Index/registro.vue";
-import Contatos from "@/Pages/Index/contatos.vue";
 import {createRouter, createWebHistory} from "vue-router";
-import Register from "@/Pages/Auth/Register.vue";
+import Index from "/resources/js/Pages/index.vue";
+import Home from "/resources/js/Pages/Home.vue";
+import Dashboard from "/resources/js/Pages/Dashboard.vue";
+import Login from "/resources/js/Pages/Auth/Login.vue";
+import Registro from "/resources/js/Pages/Index/registro.vue";
+import Contatos from "/resources/js/Pages/Index/contatos.vue";
+import Register from "/resources/js/Pages/Auth/Register.vue";
+import index from "/resources/js/Pages/index.vue";
+import edit from "/resources/js/Pages/Profile/Edit.vue";
+
 
 
 const routes = [
@@ -29,6 +32,7 @@ const routes = [
         {
             path: '/registro',
             component: Registro,
+            name: 'registro'
         },
         {
             path: '/contatos',
@@ -40,6 +44,14 @@ const routes = [
         },
         {
             path: '/cursos',
+            component: index,
+        },
+        {
+            path: '/profile',
+            component: edit,
+        },
+        {
+            path: '/registro/create',
             component: 'index',
         },
     ];
