@@ -1,15 +1,40 @@
 <script setup>
 import HeaderIndex from "@/Components/HeaderIndex.vue";
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 import IndividualForm from "@/Components/IndividualForm.vue";
-
-
+import {useRoute} from "vue-router";
+import Swal from "sweetalert2";
+import {cursoDetalhe} from "../../../../public/js/index.js";
+const cursos = ref();
 const selectedFormType = ref('default');
+const route = useRoute();
 
 const handleSelectChange = () => {
   //
 };
 
+onMounted(async () => {
+  try {
+    const id = sessionStorage.getItem('cursoID');
+    console.log('ID do curso:', id);
+
+    if (id) {
+      const detalhesDoCurso = await cursoDetalhe(parseInt(id, 10));
+      console.log('Detalhes do curso:', detalhesDoCurso);
+      cursos.value = detalhesDoCurso;
+    } else {
+      console.error('ID do curso não encontrado em sessionStorage');
+    }
+  } catch (error) {
+    console.error('[ERRO AO OBTER DETALHES DE CURSO]', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'ERRO AO OBTER DETALHES DE CURSO',
+      text: `${error}`,
+      showConfirmButton: true,
+    });
+  }
+});
 </script>
 
 <template>
@@ -21,7 +46,7 @@ const handleSelectChange = () => {
       <div class="w-full md:w-3/5 bg-white p-4">
         <h2 class="text-2xl font-bold mb-4 mt-6">Inscrição CCD</h2>
         <div class="mt-2">
-          <select v-model="selectedFormType" @change="handleSelectChange" id="typeForm" name="typeForm" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+          <select v-model="selectedFormType" @change="handleSelectChange" id="typeForm" name="typeForm" class="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
             <option>Selecione o tipo de inscrição</option>
             <option>Individual</option>
             <option>Empresarial</option>
@@ -36,7 +61,17 @@ const handleSelectChange = () => {
         </div>
         </div>
       </div>
-      <p class="lg:mt-36 ml-4">Something here.</p>
+      <section id="show">
+        <p class="lg:mt-36 ml-4">Something here.</p>
+        <div v-if="cursos" class="max-w-lg mx-auto mt-4 bg-white shadow-md rounded p-6 border border-layout">
+          <h2 class="text-2xl font-bold mb-4">{{cursos.nome_curso}}</h2>
+          <p class="text-gray-600 mb-2"><strong>Valor</strong>: {{ cursos.preco }}</p>
+          <p class="text-gray-600 mb-2"><strong>Data</strong>: {{ cursos.data_inicio }} / {{ cursos.data_termino }}</p>
+          <p class="text-gray-600 mb-2"><strong>Horario</strong>: {{ cursos.horario }}</p>
+          <p class="text-gray-600 mb-2"><strong>Local</strong>: {{ cursos.localizacao }}</p>
+          <p class="text-gray-600 mb-2"><strong>Nota</strong>: {{ cursos.nota }}</p>
+        </div>
+      </section>
       </div>
   </main>
 </template>
