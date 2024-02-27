@@ -48,6 +48,7 @@ import {stats} from "../../../public/js/script.js";
             </div>
           </div>
         </div>
+        <hr class="border-layout mt-5"/>
       </template>
     </AdminLayout>
 </template>
