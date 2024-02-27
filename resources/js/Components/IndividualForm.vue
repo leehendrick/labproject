@@ -25,7 +25,7 @@ onMounted(async () => {
 
   <div class="relative mt-5">
     <label for="email" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Email</label>
-    <input type="email" name="email" id="email" v-model="inscricao.email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="you@example.com" required />
+    <input type="email" name="email" id="email" v-model="inscricao.email" class=" outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="you@example.com" required />
   </div>
 
   <div class="relative mt-5">
@@ -44,7 +44,7 @@ onMounted(async () => {
 
   <div class="relative mt-5">
     <label for="instituicao" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Instituição de Ensino</label>
-    <input type="text" name="instituicao" id="instituicao" v-model="inscricao.instituicao" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="ISPECT" required/>
+    <input type="text" name="instituicao" id="instituicao" v-model="inscricao.instituicao" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="ISPTEC" required/>
   </div>
 
   <div class="relative mt-5">
