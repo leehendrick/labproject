@@ -1,18 +1,16 @@
 <script setup>
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-import {ref, onMounted} from "vue";
+import {ref, onMounted, watch} from "vue";
 import {inscricao, submitInscricao} from "../../../public/js/index.js";
 
+ async function submitForm(){
+    await submitInscricao();
+}
 
 //Carregar os dados da inscrição existente
 onMounted(async () => {
   //await fetchInscricao(id.value);
 })
-
- async function submitForm(){
-  await submitInscricao();
-}
-
 </script>
 
 <template>
