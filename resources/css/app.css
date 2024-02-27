@@ -8,15 +8,17 @@
 .focus-border:focus{
     border-color: #FFC423;
 }
-
+.bt-primary{
+    background-color: #FFC423;
+}
 .bt-hover{
     background-color: #FFC423;
 }
 .sidebar-hover:hover{
-    background-color: #FFC423
+    background-color: #eda900
 }
 .bt-hover:hover{
-    background-color: #ffff39;
+    background-color: #eda900;
 }
 .text-primary{
     color: #FFC423;
@@ -25,12 +27,13 @@
     background-color: #040707;
 }
 .bg-other{
-    background-color: #AFB3B4;
+    background-color: #eda900;
 }
 .border-layout{
     border-color: #FFC423;
     border-width: 2px;
     height: auto;
+    border-radius: 10px;
 }
 .border-layout2{
     border-color: #FFC423;
