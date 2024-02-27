@@ -1,8 +1,15 @@
 <script setup>
 import HeaderIndex from "@/Components/HeaderIndex.vue";
 import useCursos from "/public/js/index.js";
+import {useRoute} from "vue-router";
+import index from "@/routes/index.js";
 
 const { cursos } = useCursos();
+function inscrever(id){
+  window.alert(id)
+  sessionStorage.setItem('cursoID', id);
+  index.push({name: 'registro'});
+}
 </script>
 
 <template>
