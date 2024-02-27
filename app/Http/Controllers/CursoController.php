@@ -17,9 +17,10 @@ class CursoController extends Controller
 
     }
 
-    public function show (Curso $curso)
+    public function show ($id)
     {
-        return $curso;
+        $curso = Curso::find($id);
+        return response()->json(['curso' => $curso]);
     }
 
     public function update ()
