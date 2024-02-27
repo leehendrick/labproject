@@ -22,11 +22,12 @@ use App\Http\Controllers\HomeController;
 //Rotas inicial
 Route::get('/', fn() => Inertia::render('index'))->name('index');
 Route::get('/registro', fn() => Inertia::render('Index/registro'))->name('registro');
-Route::get('/contatos', fn() => Inertia::render('Index/contatos'))->name('registro');
+Route::get('/contatos', fn() => Inertia::render('Index/contatos'))->name('contatos');
 
 //Rotas livres
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index');
 Route::get('/error', fn() => Inertia::render('Error'))->name('error');
+Route::get('/registro/{id}', [CursoController::class, 'show'])->name('registro.curso');
 
 //Rota de login
 Route::get('/login', function () {
