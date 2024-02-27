@@ -3,12 +3,26 @@ import HeaderIndex from "@/Components/HeaderIndex.vue";
 import useCursos from "/public/js/index.js";
 import {useRoute} from "vue-router";
 import index from "@/routes/index.js";
+import Swal from "sweetalert2";
 
 const { cursos } = useCursos();
 function inscrever(id){
-  window.alert(id)
   sessionStorage.setItem('cursoID', id);
   index.push({name: 'registro'});
+
+  function reload(){
+    location.reload();
+  }
+    Swal.fire({
+      timer: 1000,
+      title: 'Carregando o formulário',
+      text: 'Por favor aguarde...',
+      didOpen(popup) {
+        Swal.showLoading()
+      }
+    }).then(() => {
+      reload();
+    })
 }
 </script>
 
