@@ -46,3 +46,12 @@
 .fade-enter, .fade-leave-to {
     opacity: 0;
 }
+
+
+.my-ring{
+    @apply focus:ring-2 focus:ring-my-ring-color
+}
+.my-ring2{
+    @apply focus:ring-1 focus:ring-my-second-color
+}
+
