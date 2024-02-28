@@ -12,27 +12,27 @@ import {ref} from "vue";
     <h2 class="text-2xl font-bold mb-4">Dados da empresa</h2>
     <div class="relative z-0">
       <label for="nome_empresa" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Nome da empresa</label>
-      <input type="text" name="nome_empresa" id="nome_empresa" v-model="inscricao.nome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="SONANGOL" required />
+      <input type="text" name="nome_empresa" id="nome_empresa" v-model="inscricao.nome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="SONANGOL" required />
     </div>
 
     <div class="relative mt-5">
       <label for="nome_responsavel" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Nome do responsavel</label>
-      <input type="text" name="nome_responsavel" id="nome_responsavel" v-model="inscricao.email" class=" outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Hendrick Nkuba" required />
+      <input type="text" name="nome_responsavel" id="nome_responsavel" v-model="inscricao.email" class=" outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="Hendrick Nkuba" required />
     </div>
 
     <div class="relative mt-5">
       <label for="email" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Email do responsavel</label>
-      <input type="email" name="email" id="email" v-model="inscricao.email" class=" outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="you@sonangol.co.ao" required />
+      <input type="email" name="email" id="email" v-model="inscricao.email" class=" outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="you@sonangol.co.ao" required />
     </div>
 
     <div class="relative mt-5">
       <label for="telefone" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Telefone</label>
-      <input type="text" name="telefone" id="telefone" v-model="inscricao.bi" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="942388756" required/>
+      <input type="text" name="telefone" id="telefone" v-model="inscricao.bi" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="942388756" required/>
     </div>
 
     <div class="relative mt-5">
       <label for="endereco" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Endereço</label>
-      <input type="text" name="endereco" id="endereco" v-model="inscricao.instituicao" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Av. via Luanda Sul" required/>
+      <input type="text" name="endereco" id="endereco" v-model="inscricao.instituicao" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="Av. via Luanda Sul" required/>
     </div>
 
     <hr class="border-layout mt-4"/>
@@ -40,7 +40,23 @@ import {ref} from "vue";
 
     <div class="relative mt-5">
       <label for="nome_formando" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Nome Completo</label>
-      <input type="text" name="nome_formando" id="nome_formando" v-model="inscricao.nome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Hendrick Nkuba" required/>
+      <input type="text" name="nome_formando" id="nome_formando" v-model="inscricao.nome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="Hendrick Nkuba" required/>
+    </div>
+
+    <div class="relative mt-5">
+      <label for="nome_formando" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Contato</label>
+      <input type="text" name="nome_formando" id="nome_formando" v-model="inscricao.nome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="942388756" required/>
+    </div>
+
+    <div class="relative mt-5">
+      <label for="nome_formando" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Função</label>
+      <input type="text" name="nome_formando" id="nome_formando" v-model="inscricao.nome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 my-ring2 sm:text-sm sm:leading-6" placeholder="Supervisor" required/>
+    </div>
+
+    <div class="relative mt-5">
+      <label for="nome_formando" class="absolute -top-2 left-2 inline-block bg-white px-1 text-xs font-medium text-gray-900">Atividade realizada</label>                <div class="mt-2.5">
+      <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 my-ring2 sm:text-sm sm:leading-6" placeholder="Fale um pouco sobre sua atividade diária dentro da empresa " />
+    </div>
     </div>
 
     <div class="mt-6">
