@@ -43,7 +43,7 @@ Route::get('/login', function () {
 //Rota de administrador
 Route::middleware(['auth', 'verified', 'admin'])->group(function (){
     Route::get('/dashboard', fn() => Inertia::render('Dashboard'))->name('dashboard');
-    Route::get('/dashboard/formandos', fn() => Inertia::render('Formandos'))->name('dashboard.formandos');
+    Route::get('/dashboard/inscricoes', fn() => Inertia::render('Dashboard/Inscricoes'))->name('dashboard.inscricoes');
     Route::resource('/receita', 'ReceitaController');
 });
 
