@@ -15,6 +15,10 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            ringColor: {
+                'my-ring-color': '#FFC423',
+                'my-second-color': '#040707'
+            },
         },
     },
 
