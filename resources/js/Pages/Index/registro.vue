@@ -50,7 +50,7 @@ onMounted(async () => {
       <div class="w-full md:w-3/5 bg-white p-4">
         <h2 class="text-2xl font-bold mb-4 mt-6">Inscrição CCD</h2>
         <div class="mt-2">
-          <select v-model="selectedFormType" @change="handleSelectChange" id="typeForm" name="typeForm" class="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+          <select v-model="selectedFormType" @change="handleSelectChange" id="typeForm" name="typeForm" class="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 my-ring2 sm:max-w-xs sm:text-sm sm:leading-6">
             <option selected value="Individual">Individual</option>
             <option value="Empresarial">Empresarial</option>
           </select>
