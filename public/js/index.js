@@ -24,6 +24,7 @@ export default function useCursos() {
     };
 }
 
+
 export const inscricao = {
     nome: '',
     email: '',
@@ -50,6 +51,7 @@ export async  function fetchInscricao(id) {
         console.error(error);
     }
 }
+
 
 export async function submitInscricao(){
     try{

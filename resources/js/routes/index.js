@@ -9,6 +9,7 @@ import Contatos from "/resources/js/Pages/Index/contatos.vue";
 import Register from "/resources/js/Pages/Auth/Register.vue";
 import index from "/resources/js/Pages/index.vue";
 import edit from "/resources/js/Pages/Profile/Edit.vue";
+import Inscricoes from "@/Pages/Dashboard/Inscricoes.vue";
 
 
 
@@ -53,6 +54,10 @@ const routes = [
         {
             path: '/registro/create',
             component: 'index',
+        },
+        {
+            path: '/dashboard/inscrições',
+            component: Inscricoes,
         },
     ];
 
