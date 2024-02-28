@@ -3,7 +3,12 @@ import { Head } from '@inertiajs/vue3';
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {ArrowDownIcon, ArrowUpIcon} from '@heroicons/vue/20/solid'
 
-import {stats} from "../../../public/js/script.js";
+import {getNavigationAdm, stats} from "../../../public/js/script.js";
+
+console.log(sessionStorage.getItem('current'))
+const current = 'dashboard';
+sessionStorage.setItem('current', current);
+getNavigationAdm()
 </script>
 
 <template>
@@ -48,7 +53,6 @@ import {stats} from "../../../public/js/script.js";
             </div>
           </div>
         </div>
-        <hr class="border-layout mt-5"/>
       </template>
     </AdminLayout>
 </template>
