@@ -21,7 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'user_type',
+        'type',
+        'criado_por'
+    ];
+
+    protected $attributes = [
+        'type' => 'gerente',
     ];
 
     /**
