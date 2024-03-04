@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->string('user_type', '50')->default('user');
+        Schema::create('mensagens', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('email');
+            $table->string('telefone');
+            $table->string('mensagem');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->dropColumn('user_type');
-        });
+        Schema::dropIfExists('mensagens');
     }
 };
