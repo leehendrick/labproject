@@ -19,13 +19,13 @@ class ProfileController extends Controller
     public function edit(Request $request): \Inertia\Response
     {
         if (Auth::check()) {
-            $usertype = Auth()->user()->user_type;
+            $usertype = Auth()->user()->type;
             if ($usertype == 'user') {
                 return Inertia::render('Profile/Edit', [
                     'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
                     'status' => session('status'),
                 ]);
-            } elseif ($usertype == 'admin') {
+            } elseif ($usertype == 'gerente') {
                 return Inertia::render('Profile/EditAdmin', [
                     'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
                     'status' => session('status'),
