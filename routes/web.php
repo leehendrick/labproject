@@ -4,6 +4,7 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceitaController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
@@ -40,8 +41,9 @@ Route::get('/login', function () {
     ]);
 });
 
-//Rota de administrador
-Route::middleware(['auth', 'verified', 'admin'])->group(function (){
+
+//Rota de gerente
+Route::middleware(['auth', 'verified', 'gerente'])->group(function (){
     Route::get('/dashboard', fn() => Inertia::render('Dashboard'))->name('dashboard');
     Route::get('/dashboard/inscricoes', fn() => Inertia::render('Dashboard/Inscricoes'))->name('dashboard.inscricoes');
     Route::resource('/receita', 'ReceitaController');
@@ -56,5 +58,5 @@ Route::middleware('auth')->group(function (){
 });
 
 //Vue Router
-Route::get('/{any}', fn() => view('index'))->where('any', '.*');
+//Route::get('/{any}', fn() => view('index'))->where('any', '.*');
 require __DIR__.'/auth.php';
