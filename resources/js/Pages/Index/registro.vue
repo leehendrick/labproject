@@ -68,11 +68,11 @@ onMounted(async () => {
       <section id="show">
         <p class="lg:mt-36 mt-10 ml-4">Something here.</p>
         <div v-if="cursos" class="max-w-lg mx-auto mt-4 bg-white shadow-md rounded p-6 border border-layout">
-          <h2 class="text-2xl font-bold mb-4">{{cursos.nome_curso}}</h2>
+          <h2 class="text-2xl font-bold mb-4">{{cursos.nome}}</h2>
           <p class="text-gray-600 mb-2"><strong>Valor</strong>: {{ cursos.preco }}</p>
           <p class="text-gray-600 mb-2"><strong>Data</strong>: {{ cursos.data_inicio }} / {{ cursos.data_termino }}</p>
           <p class="text-gray-600 mb-2"><strong>Horario</strong>: {{ cursos.horario }}</p>
-          <p class="text-gray-600 mb-2"><strong>Local</strong>: {{ cursos.localizacao }}</p>
+          <p class="text-gray-600 mb-2"><strong>Local</strong>: {{ cursos.local }}</p>
           <p class="text-gray-600 mb-2"><strong>Nota</strong>: {{ cursos.nota }}</p>
         </div>
 
