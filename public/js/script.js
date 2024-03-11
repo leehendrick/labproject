@@ -34,5 +34,11 @@ export function getNavigationAdm() {
                         icon: UsersIcon,
                         current: sessionCurrent === 'inscricoes'
                 },
+                {
+                        name: 'Cursos',
+                        href: '/dashboard/cursos',
+                        icon: AcademicCapIcon,
+                        current: sessionCurrent === 'cursos'
+                },
         ];
 }
