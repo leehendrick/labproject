@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\URL;
 |
 */
 
-URL::forceRootUrl('https');
 
 //Rotas inicial
 Route::get('/', fn() => Inertia::render('index'))->name('index');
@@ -35,7 +34,6 @@ Route::get('/registro/{id}', [CursoController::class, 'show'])->name('registro.c
 
 //Rota de login
 Route::get('/login', function () {
-    sleep(5);
     return Inertia::render('Auth/Login', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
