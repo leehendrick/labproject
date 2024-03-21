@@ -20,10 +20,10 @@ import {
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
 import Dropdown from "@/Components/Dropdown.vue";
 import DropdownLink from "@/Components/DropdownLink.vue";
-import {navigationAdm} from "../../../public/js/script.js";
-import {userNavigation} from "../../../public/js/script.js";
+import {getNavigationAdm, userNavigation} from "../../../public/js/script.js";
 
 const sidebarOpen = ref(false)
+const navigationAdm = getNavigationAdm();
 </script>
 
 <template>
@@ -191,6 +191,7 @@ const sidebarOpen = ref(false)
                   </MenuItems>
                 </transition>
               </Menu>
+
             </div>
           </div>
         </div>

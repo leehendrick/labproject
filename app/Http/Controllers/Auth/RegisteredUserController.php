@@ -36,11 +36,14 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+        $usuario_logado = Auth::user();
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'type' => 'gerente',
+            'criado_por' => $usuario_logado->getAuthIdentifierName()
         ]);
 
         event(new Registered($user));
@@ -49,4 +52,5 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
 }

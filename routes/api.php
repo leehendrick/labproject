@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\DuracaoController;
+use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\InscricoesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('cursos', CursoController::class);
 Route::resource('inscricoes', InscricoesController::class);
+Route::resource('horarios', HorarioController::class);
+Route::resource('duracaos',DuracaoController::class);

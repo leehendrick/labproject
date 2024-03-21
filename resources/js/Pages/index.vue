@@ -1,14 +1,34 @@
 <script setup>
 import HeaderIndex from "@/Components/HeaderIndex.vue";
 import useCursos from "/public/js/index.js";
+import {useRoute} from "vue-router";
+import index from "@/routes/index.js";
+import Swal from "sweetalert2";
 
 const { cursos } = useCursos();
+function inscrever(id){
+  sessionStorage.setItem('cursoID', id);
+  index.push({name: 'registro'});
+
+  function reload(){
+    location.reload();
+  }
+    Swal.fire({
+      timer: 1000,
+      title: 'Carregando o formulário',
+      text: 'Por favor aguarde...',
+      didOpen(popup) {
+        Swal.showLoading()
+      }
+    }).then(() => {
+      reload();
+    })
+}
 </script>
 
 <template>
 <header-index/>
   <main class="mt-32 container mx-auto p-4">
-
     <div class="flex flex-col md:flex-row">
       <!-- Container do lado esquerdo -->
       <div class="w-full md:w-3/5 bg-white p-4">

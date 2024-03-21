@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,13 +20,13 @@ class ProfileController extends Controller
     public function edit(Request $request): \Inertia\Response
     {
         if (Auth::check()) {
-            $usertype = Auth()->user()->user_type;
+            $usertype = Auth()->user()->type;
             if ($usertype == 'user') {
                 return Inertia::render('Profile/Edit', [
                     'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
                     'status' => session('status'),
                 ]);
-            } elseif ($usertype == 'admin') {
+            } elseif ($usertype == 'gerente') {
                 return Inertia::render('Profile/EditAdmin', [
                     'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
                     'status' => session('status'),
@@ -36,6 +37,11 @@ class ProfileController extends Controller
         }
     }
 
+    public function show ($id)
+    {
+        $users = User::find($id);
+        return response()->json(['user' => $users]);
+    }
 
     /**
      * Update the user's profile information.

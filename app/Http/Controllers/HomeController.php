@@ -13,11 +13,11 @@ class HomeController extends Controller
     {
         if(Auth::id())
         {
-            $usertype = Auth()->user()->user_type;
-            if ($usertype == 'user'){
+            $usertype = Auth()->user()->type;
+            if ($usertype == 'admin'){
                 return Inertia::render('Home');
             }
-            else if($usertype == 'admin'){
+            else if($usertype == 'gerente'){
                 return Inertia::render('Dashboard');
             }
             else{

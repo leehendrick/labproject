@@ -1,4 +1,5 @@
 import {AcademicCapIcon, CurrencyDollarIcon, HomeIcon, UsersIcon} from "@heroicons/vue/24/outline/index.js";
+
 export const navigation = [
         { name: 'Home', href: '/' },
         { name: 'Inscrições', href: 'registro' },
@@ -11,12 +12,33 @@ export const stats = [
         { id: 3, name: 'Total Turmas', stat: '18', icon: AcademicCapIcon, change: '3.2%', changeType: 'decrease' },
 ]
 
-export const navigationAdm = [
-        { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true,  },
-        { name: 'Formandos', href: '/dashboard/formandos', icon: UsersIcon, current: false, },
-]
-
 export const userNavigation = [
         { name: 'Your profile', href: '#' },
         { name: 'Sign out', href: '#' },
 ]
+
+export function getNavigationAdm() {
+        const sessionCurrent = sessionStorage.getItem('current');
+        const defaultCurrent = true;
+
+        return [
+                {
+                        name: 'Home',
+                        href: '/dashboard',
+                        icon: HomeIcon,
+                        current: sessionCurrent === 'dashboard'
+                },
+                {
+                        name: 'Inscrições',
+                        href: '/dashboard/inscricoes',
+                        icon: UsersIcon,
+                        current: sessionCurrent === 'inscricoes'
+                },
+                {
+                        name: 'Cursos',
+                        href: '/dashboard/cursos',
+                        icon: AcademicCapIcon,
+                        current: sessionCurrent === 'cursos'
+                },
+        ];
+}

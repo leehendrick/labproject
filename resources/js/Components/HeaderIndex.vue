@@ -3,7 +3,7 @@ import { navigation } from '/public/js/script.js';
 import { InertiaLink } from "@inertiajs/inertia-vue3";
 </script>
 <template>
-  <header class="bg-secondary fixed top-0 w-full ">
+  <header class="bg-secondary lg:fixed top-0 w-full z-10 ">
     <nav class="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
       <div class="flex w-full items-center justify-between border-b border-indigo-500 py-6 lg:border-none">
         <div class="flex items-center">

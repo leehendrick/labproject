@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('receitas', function (Blueprint $table) {
+        Schema::create('inscricao_empresarial', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_turma');
-            $table->date('data_recebimento');
-            $table->double('valor_arrecadado');
-            $table->text('descricao');
+            $table->string('nome');
+            $table->integer('contato');
+            $table->string('cargo', 20);
+            $table->string('atividade');
+            $table->unsignedBigInteger('empresa');
+            $table->unsignedBigInteger('curso');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('receitas');
+        Schema::dropIfExists('inscricao_empresarial');
     }
 };

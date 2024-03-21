@@ -6,10 +6,13 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import router from './router.js'
+import router from './routes/index.js'
+import { InertiaProgress } from '@inertiajs/progress';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 const el = document.getElementById('app');
+
+InertiaProgress.init();
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
